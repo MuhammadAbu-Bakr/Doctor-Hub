@@ -1,7 +1,3 @@
-databases:
-  - name: doctor-hub-db
-    plan: free
-
 services:
   - type: web
     name: doctor-hub
@@ -13,9 +9,7 @@ services:
       - key: NODE_VERSION
         value: 20.11.1
       - key: DATABASE_URL
-        fromDatabase:
-          name: doctor-hub-db
-          property: connectionString
+        sync: false
       - key: JWT_SECRET
         generateValue: true
       - key: RESEND_API_KEY
